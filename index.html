@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<style>
+  .bottom-space {
+  margin-bottom: 0.25cm;
+  }
+</style>
+   
+<div class="home">
+
+  <p class="bottom-space">
+    <img src="images/Gadgetron.png">
+  </p>
+
+  <p class="bottom-space">
+    The Gadgetron is an open source framework for medical image reconstruction. It has been developed at the National Heart, Lung, and Blood Institute, NIH, Bethesda, MD, USA and at the Department of Computer Science and Department of Clinical Medicine, Aarhus University, Denmark. It is made freely available to the medical image reconstruction community.
+  </p>
+
+  <p class="bottom-space">
+    The main portal for access to source code, documentation, etc. is the <a href="http://github.com/gadgetron/gadgetron">GitHub website</a>. Please direct any questions to our <a href="https://groups.google.com/forum/#!forum/gadgetron"> Google Group</a>
+  </p>
+  
+  <p class="bottom-space">
+    If you find the Gadgetron useful in your research, please cite this <a href="http://onlinelibrary.wiley.com/doi/10.1002/mrm.24389/abstract">paper</a>:
+  </p>
+
+  <p style="font-style: italic;">Hansen MS, S&#0248;rensen TS. Gadgetron: An Open Source Framework for Medical Image Reconstruction. Magn Reson Med. 2013 Jun;69(6):1768-76.</p>
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+</div>
