@@ -4,7 +4,12 @@ title: Tutorial
 permalink: /tutorial/
 ---
 
-This is a short tutorial of how to use the [Gadgetron](http://gadgetron.github.io) image reconstruction framework. We will be working with version 3.11.0-7c9d5a02.
+This is a short tutorial of how to use the [Gadgetron](http://gadgetron.github.io) image reconstruction framework. We will be working with version 3.11.0-c2092576.
+
+Here is a video walkthroug of the tutorial:
+
+<iframe align="center" width="640" height="360" src="//youtube.com/embed/yLo4j5dQGhY" frameborder="0" allowfullscreen></iframe>
+
 
 Prerequisites
 -------------
@@ -18,20 +23,20 @@ TL;DR
 
 In case you want to dig straight in:
 
-	$ docker run -t --name gt1 --detach --volume $(pwd):/opt/data gadgetron/ubuntu_1404_cuda75
+    $ docker run -t --name gt1 --detach --volume $(pwd):/opt/data gadgetron/ubuntu_1404_cuda75
 	
 This will (first download and then) launch the Gadgetron in a Docker container. It will also mount your current folder as a data folder inside the container. To enter the container:
 
-	$ docker exec -ti gt1 /bin/bash
+    $ docker exec -ti gt1 /bin/bash
 	
 Inside the container generate some data:
 
-	$ cd /opt/data
-	$ ismrmrd_generate_cartesian_shepp_logan
+    $ cd /opt/data
+    $ ismrmrd_generate_cartesian_shepp_logan
 
 Send the data for reconstruction in the Gadgetron:
 
-	$ gadgetron_ismrmrd_client -f testdata.h5 -c default.xml -o out.h5
+    $ gadgetron_ismrmrd_client -f testdata.h5 -c default.xml -o out.h5
 	
 Open the `out.h5` file with an application such as [HDFView](https://www.hdfgroup.org/products/java/hdfview/) and look at the image.
 
@@ -48,11 +53,11 @@ The easiest way to get the Gadgetron installed is by using one of our pre-built 
 
 To get started open up a shell/terminal where you have access to Docker. This can either be your standard shell on Linux or the "Docker Quickstart Terminal" on [Mac](https://docs.docker.com/mac/step_one/) or [Windows](https://docs.docker.com/windows/step_one/). In the terminal type:
 
-	$ docker pull gadgetron/ubuntu_1404_cuda75
+    $ docker pull gadgetron/ubuntu_1404_cuda75
 	
 If this is the first time you pull this image, it could take a few minutes depending on network bandwidth and other issues. Once the pull is complete, you should be able to type:
 
-	$ docker images
+    $ docker images
 
 And see the available images on your machine:
 
@@ -63,13 +68,17 @@ gadgetron/ubuntu_1404_cuda75   latest              d698dcb1452b        20 hours 
 
 To start a container using this image, we will use the command:
 
- 	$ docker run -t --name gt1 --detach --volume $(pwd):/opt/data gadgetron/ubuntu_1404_cuda75
+{% highlight shell %}
+$ docker run -t --name gt1 --detach --volume $(pwd):/opt/data gadgetron/ubuntu_1404_cuda75
+{% endhighlight %}
 
 For a complete list of all the `docker run` options, please refer to the Docker [documentation](https://docs.docker.com/engine/reference/run/). The `-t` attaches a pseudo TTY to the container to enable us to have command line access (see later), `--detach` puts the container in the background, `--name` gives the container a convenient name (we will use that later), and `--volume $(pwd):/opt/data` maps the current directory (`pwd`) into a folder called `/opt/data` inside the container. If you execute that command from a folder where you have to data to process, you will have access to that data inside the container. 
 
 If you now type:
-	
-	$ docker ps
+
+{% highlight shell %}
+$ docker ps
+{% endhighlight %}
    
 you should see that you have the Gadgetron container running:
 
