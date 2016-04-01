@@ -116,11 +116,13 @@ Generating Cartesian Shepp Logan Phantom!!!
 Acceleration: 1
 {% endhighlight %}
 
-For more options for this application you can type `ismrmrd_generate_cartesian_shepp_logan -h`. The application should generate a `testdata.h5` file in your current folder, which will contain a simulated dataset in ISMRMRD format. 
+For more options for this application you can type `ismrmrd_generate_cartesian_shepp_logan -h`. The application should generate a `testdata.h5` file in your current folder, which will contain a simulated dataset in ISMRMRD format 
 
 To reconstruct the test data type:
 
-	$ gadgetron_ismrmrd_client -f testdata.h5 -o out.h5 -c default.xml
+{% highlight shell %}
+$ gadgetron_ismrmrd_client -f testdata.h5 -o out.h5 -c default.xml
+{% endhighlight %}
 
 The `-f` option is the input file, `-o` is the output file and `-c` indicates the Gadgetron reconstruction that should be run. The `gadgetron_ismrmrd_client` has a few options, which you can list with `gadgetron_ismrmrd_client -h`. As indicated by the name, this program is a client, which connects (via a TCP/IP connection) to a Gadgetron server. This server is already running in the container and receiving connections on port `9002`, which is the default port for the Gadgetron. If you want to connect to a Gadgetron running on a different port, use the `-p` argument. 
 
