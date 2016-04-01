@@ -72,9 +72,13 @@ To start a container using this image, we will use the command:
 $ docker run -t --name gt1 --detach --volume $(pwd):/opt/data gadgetron/ubuntu_1404_cuda75
 {% endhighlight %}
 
-For a complete list of all the `docker run` options, please refer to the Docker [documentation](https://docs.docker.com/engine/reference/run/). The `-t` attaches a pseudo TTY to the container to enable us to have command line access (see later), `--detach` puts the container in the background, `--name` gives the container a convenient name (we will use that later), and `--volume $(pwd):/opt/data` maps the current directory (`pwd`) into a folder called `/opt/data` inside the container. If you execute that command from a folder where you have to data to process, you will have access to that data inside the container. 
+For a complete list of all the `docker run` options, please refer to the Docker [documentation](https://docs.docker.com/engine/reference/run/). The `-t` attaches a pseudo TTY to the container to enable us to have command line access (see later), `--detach` puts the container in the background, `--name` gives the container a convenient name (we will use that later), and `--volume $(pwd):/opt/data` maps the current directory (`pwd`) into a folder called `/opt/data` inside the container. If you execute that command from a folder where you have to data to process, you will have access to that data inside the container. If you would like to map some other folder than your current directory, you would type:
 
-If you now type:
+{% highlight shell %}
+$ docker run -t --name gt1 --detach --volume /path/you/would/like/to/mount:/opt/data gadgetron/ubuntu_1404_cuda75
+{% endhighlight %}
+
+After starting the container, you can verify that it is running:
 
 {% highlight shell %}
 $ docker ps
@@ -116,7 +120,8 @@ For more options for this application you can type `ismrmrd_generate_cartesian_s
 
 To reconstruct the test data type:
 
-	$ gadgetron_ismrmrd_client -f testdata.h5 -o out.h5 -c default.xml	
+	$ gadgetron_ismrmrd_client -f testdata.h5 -o out.h5 -c default.xml
+
 The `-f` option is the input file, `-o` is the output file and `-c` indicates the Gadgetron reconstruction that should be run. The `gadgetron_ismrmrd_client` has a few options, which you can list with `gadgetron_ismrmrd_client -h`. As indicated by the name, this program is a client, which connects (via a TCP/IP connection) to a Gadgetron server. This server is already running in the container and receiving connections on port `9002`, which is the default port for the Gadgetron. If you want to connect to a Gadgetron running on a different port, use the `-p` argument. 
 
 After running the reconstruction, you can open up the `out.h5` file in [HDFView](https://www.hdfgroup.org/products/java/hdfview/). When you run a new reconstruction, the default behavior of the `gadgetron_ismrmrd_client` is to append another group to the HDF5 file with the current date and time. If you keep running reconstructions they will be appended to the time file and organized by time. If you navigate to the `image_0/data` variable under the last recon group, you can right-click and select "Open As". This will bring up a dialog window where you can select "Image" and specify the ordering of the dimensions to display. If you select "Height" to be "dim 3", "Width" to be "dim 4" and "Depth" to be "dim 0", you should be able to view the resulting image as illustrated below:
