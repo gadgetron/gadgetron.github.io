@@ -8,7 +8,7 @@ This is a short tutorial of how to use the [Gadgetron](http://gadgetron.github.i
 
 Here is a video walkthroug of the tutorial:
 
-<iframe align="center" width="640" height="360" src="//youtube.com/embed/yLo4j5dQGhY" frameborder="0" allowfullscreen></iframe>
+<iframe align="middle" width="640" height="360" src="//youtube.com/embed/yLo4j5dQGhY" frameborder="0" allowfullscreen></iframe>
 
 
 Prerequisites
@@ -43,7 +43,7 @@ Open the `out.h5` file with an application such as [HDFView](https://www.hdfgrou
 For more details read the complete tutorial below. 
 
 
-Running the Gadgtron using Docker
+Running the Gadgetron using Docker
 ---------------------------------
   
 
