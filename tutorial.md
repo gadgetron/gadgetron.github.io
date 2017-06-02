@@ -25,7 +25,7 @@ In case you want to dig straight in:
 
     $ docker run -t --name gt1 --detach --volume $(pwd):/opt/data gadgetron/ubuntu_1404_cuda75
 	
-This will (first download and then) launch the Gadgetron in a Docker container. It will also mount your current folder as a data folder inside the container. To enter the container:
+This will (first download and then) launch the Gadgetron in a Docker container. It will also mount your current folder as a data folder inside the container. If you are using Windows or MacOS please check the limitations on which directories can be mounted as volumes in the [Docker documentation](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume). To enter the container:
 
     $ docker exec -ti gt1 /bin/bash
 	
