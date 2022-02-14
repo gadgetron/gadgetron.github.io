@@ -4,7 +4,8 @@ title: Documentation
 permalink: /documentation/
 ---
 
-The main sources of documentation are:
+The [Gadgetron ReadTheDocs](https://readthedocs.org/projects/gadgetron/) page is the current source for all updated documentation. 
 
-1. The [Wiki](https://github.com/gadgetron/gadgetron/wiki)
-2. The [API documentation](/apidoc)
+Sources of documentation for legacy codebases are available at:
+1. The deprecated [Wiki](https://github.com/gadgetron/gadgetron/wiki)
+2. The deprecated [API documentation](/deprecated-apidoc)
