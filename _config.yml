@@ -7,12 +7,12 @@
 
 # Site settings
 title: Gadgetron
-email: gadgetron@googlegroups.com
+# email: gadgetron@googlegroups.com
 description: > # this means to ignore newlines until "baseurl:"
   Gadgetron Medical Image Reconstruction Framework.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://gadgetron.github.io" # the base hostname & protocol for your site
-twitter_username: ReconstructThis
+# twitter_username: ReconstructThis
 github_username:  gadgetron
 
 # Build settings

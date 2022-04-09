@@ -4,7 +4,7 @@ title: Tutorial
 permalink: /tutorial/
 ---
 
-Warning: This tutorial is deprecated
+Warning: This tutorial is deprecated as it describes working with an older version (3) of the Gadgetron.
 ------------
 
 This is a short tutorial of how to use the [Gadgetron](http://gadgetron.github.io) image reconstruction framework. We will be working with version 3.11.0-c2092576.
